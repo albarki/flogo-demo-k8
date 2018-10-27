@@ -3,8 +3,8 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: draft
-  tag: dev
+  repository: 10.101.74.130:5000/ibrahiemalbarki-gmail-com/flogo-demo-k8
+  tag: 0.0.3
   pullPolicy: IfNotPresent
 service:
   name: flogo-demo-k8
