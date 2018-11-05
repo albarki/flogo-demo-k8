@@ -22,7 +22,11 @@ pipeline {
           dir ('/home/jenkins/go/src/github.com/ibrahiemalbarki-gmail-com/flogo-demo-k8') {
             checkout scm
             container('go') {
-              sh "make linux"
+              sh "go get -u github.com/golang/dep/cmd/dep"
+	      sh "go get -u github.com/TIBCOSoftware/flogo-cli/..."
+	      sh "flogo create -f app.json"
+              sh "cd flogo-demo-k8 && flogo build -o -e"
+            //  sh "make linux"
               sh 'export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml'
 
 
